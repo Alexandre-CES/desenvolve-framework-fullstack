@@ -1,16 +1,20 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lista de Produtos</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
+  <img src="{% static 'images/logo_produto.jpeg' %}"  height="200">
   <h1>Produtos Disponíveis</h1>
   <ul>
     {% for produto in produtos %}
       <li>{{produto.nome}} - R$ {{produto.preco}}</li>
     {% endfor %}
   </ul>
+  <script src="{% static  'js/script.js' %}"></script>
 </body>
 </html>
