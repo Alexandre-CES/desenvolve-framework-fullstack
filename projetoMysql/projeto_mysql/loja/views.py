@@ -43,3 +43,18 @@ def contato(request):
     form = ContatoForm()
 
   return render(request, 'contato.html', {'form':form, 'enviado':enviado})
+
+def salvar_nome_na_sessao(request):
+  request.session['nome_usuario'] = 'Lucas'
+  return render(request, 'sessao_salva.html')
+
+def mostrar_nome_da_sessao(request):
+  nome = request.session.get('nome_usuario','Visitante')
+  return render(request, 'mostrar_sessao.html', {'nome':nome})
+
+def limpar_sessao(request):
+  try:
+    del request.session['nome_usuario']
+  except KeyError:
+    pass
+  return render(request, 'sessao_limpa.html')
