@@ -4,6 +4,10 @@ from .forms import ProdutoForm, ProdutoModelForm
 from django.core.mail import send_mail
 from .forms import ContatoForm
 
+def home(request):
+  contexto = {'nome':'Lucas'}
+  return render(request, 'home.html', contexto)
+
 # Create your views here.
 def lista_produtos(request):
   produtos = Produto.objects.all()
