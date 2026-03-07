@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %} Bem-vindo ao ToDo List{% endblock %}
+
+{% block content %}
+
+<div class="text-center mt-5">
+  <h1>Bem-vindo ao Gerenciador de Tarefas</h1>
+  <p class="lead">Organize sua rotina de forma prática e rápida.</p>
+
+  {% if user.is_authenticated %}
+    <a href="{% url 'task_list' %}" class="btn btn-primary btn-lg">Ver minhas tarefas</a>
+  {% else %}
+    <a href="{% url 'login' %}" class="btn btn-success btn-lg me-2">Entrar</a>
+    <a href="{% url 'register' %}" class="btn btn-outline-primary btn-lg">Registrar</a>
+  {% endif %}
+</div>
+
+{% endblock %}
