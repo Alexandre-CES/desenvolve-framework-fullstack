@@ -1,5 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from .models import Task
+from .forms import TaskForm
 
 # Create your views here.
 def register(request):
@@ -15,3 +18,8 @@ def register(request):
 
 def index(request):
   return render(request, 'index.html')
+
+@login_required
+def task_list(request):
+  tasks = Task.objects.filter(user=request.user)
+  return render(request, 'task_list.html')
