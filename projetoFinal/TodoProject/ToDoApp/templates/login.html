@@ -9,6 +9,19 @@
 
   <form method="post">
     {% csrf_token %}
+
+    {% load widget_teaks %}
+
+    <div class="mb-3">
+      {{ form.username.label_tag }}
+      {% render_field form.username class="form-control" %}
+    </div>
+
+    <div class="mb-3">
+      {{ form.username.label_tag }}
+      {% render_field form.username class="form-control" %}
+    </div>
+
     {{ form.as_p }}
     <button type="submit" class="btn btn-success">Entrar</button>
   </form>
